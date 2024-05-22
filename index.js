@@ -22,18 +22,18 @@ app.post(
   wrapRequestHandler(async (req, res) => {
     const nowUnix = Math.floor(new Date().getTime() / 1000.0);
     const now = moment(nowUnix * 1000).format("DD[-]MM_HH[h]mm");
-    fs.writeFile(
-      path.resolve(`contents/content_${now}.html`),
-      req.body.data,
-      { flag: "a" },
-      (err) => {
-        if (err) {
-          console.error(err);
-        } else {
-          // file written successfully
-        }
-      }
-    );
+    // fs.writeFile(
+    //   path.resolve(`contents/content_${now}.html`),
+    //   req.body.data,
+    //   { flag: "a" },
+    //   (err) => {
+    //     if (err) {
+    //       console.error(err);
+    //     } else {
+    //       // file written successfully
+    //     }
+    //   }
+    // );
 
     await questionsService.add({
       timestamp: nowUnix,
